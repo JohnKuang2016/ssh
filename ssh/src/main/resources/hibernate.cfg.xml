@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://192.168.1.109:3306/one?characterEncoding=UTF8</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">1234</property>
+
+		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<!-- 在这儿添加一些hibernate的配置信息 -->
+		<property name="show_sql">true</property>
+		<!-- 指定自动的生成表,create删除以后再创建 -->
+		<property name="hbm2ddl.auto">update</property>
+		<!-- 配置二级缓存 -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.EhCacheRegionFactory</property>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+
+
+		<!-- 引用配置文件 -->
+		<mapping class="cn.ssh2.domain.Car" />
+		<!-- <class-cache usage="read-only" class="cn.ssh2.domain.Car"/> -->
+
+
+
+	</session-factory>
+</hibernate-configuration>
